@@ -37,7 +37,7 @@ const roleChoices: RoleChoice[] = [
 
 // User List component
 export const UserList: React.FC<ListProps> = (props) => (
-  <List {...props}>
+  <List {...props} empty={<div>No users found</div>}>
     <Datagrid>
       <TextField source="id" />
       <TextField source="username" />
@@ -56,7 +56,7 @@ export const UserEdit: React.FC<EditProps> = (props) => {
 
   const onSuccess = () => {
     notify("User updated");
-    redirect("list", props.basePath);
+    redirect("list");
   };
 
   return (
@@ -82,7 +82,7 @@ export const UserCreate: React.FC<CreateProps> = (props) => {
 
   const onSuccess = () => {
     notify("User created");
-    redirect("list", props.basePath);
+    redirect("list");
   };
 
   const validatePassword = [
