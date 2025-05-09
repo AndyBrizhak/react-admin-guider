@@ -1,5 +1,5 @@
-// src/resources/users.js
-import React from "react";
+// src/resources/users.tsx
+//import React from "react";
 import {
   List,
   Datagrid,
@@ -17,9 +17,18 @@ import {
   minLength,
   useNotify,
   useRedirect,
+  ListProps,
+  EditProps,
+  CreateProps,
 } from "react-admin";
 
-const roleChoices = [
+// Define types for the choices
+interface RoleChoice {
+  id: string;
+  name: string;
+}
+
+const roleChoices: RoleChoice[] = [
   { id: "superadmin", name: "Super Admin" },
   { id: "admin", name: "Admin" },
   { id: "manager", name: "Manager" },
@@ -27,7 +36,7 @@ const roleChoices = [
 ];
 
 // User List component
-export const UserList = (props) => (
+export const UserList: React.FC<ListProps> = (props) => (
   <List {...props}>
     <Datagrid>
       <TextField source="id" />
@@ -41,7 +50,7 @@ export const UserList = (props) => (
 );
 
 // User Edit component
-export const UserEdit = (props) => {
+export const UserEdit: React.FC<EditProps> = (props) => {
   const notify = useNotify();
   const redirect = useRedirect();
 
@@ -67,7 +76,7 @@ export const UserEdit = (props) => {
 };
 
 // User Create component
-export const UserCreate = (props) => {
+export const UserCreate: React.FC<CreateProps> = (props) => {
   const notify = useNotify();
   const redirect = useRedirect();
 

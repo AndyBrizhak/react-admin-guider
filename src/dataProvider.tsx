@@ -2,7 +2,7 @@
 import { fetchUtils } from "react-admin";
 import { stringify } from "query-string";
 
-const apiUrl = process.env.REACT_APP_API_URL || "https://your-api-url.com/api";
+const apiUrl = process.env.REACT_APP_API_URL || "https://localhost:7078/api";
 const httpClient = fetchUtils.fetchJson;
 
 export const dataProvider = {
